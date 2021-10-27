@@ -1,3 +1,5 @@
+# skeleton file for the producer of loyalty program
+
 import pika, json
 
 params = pika.URLParameters('amqps://qwpgztzf:URdQupS0682gEE3gpSQaGOvJ5KAuiiNB@poodle.rmq2.cloudamqp.com/qwpgztzf')

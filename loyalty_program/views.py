@@ -14,9 +14,11 @@ class  ListDiscountCode(viewsets.ViewSet):
     def generate(self, request):
         id_brand = request.data.get('id_brand')
         number_of_dicount_codes = int(request.data.get('number_of_dicount_codes'))
-        
-        # add validation of brand here
+        # add validation for brand here
+        if(number_of_dicount_codes <= 0): 
+            return HttpResponse(status=403)
         self.createXdiscountCodes(number_of_dicount_codes, id_brand)
+        # Publish to rabbit MQ here for brand/store and search service that new codes are available 
         return HttpResponse(status=200)
 
     def list(self, request):
@@ -26,6 +28,7 @@ class  ListDiscountCode(viewsets.ViewSet):
 
     def createXdiscountCodes(self, x, id_brand):
         for iteration in range(0, x):
+            # made a decision here that all codes are just 4 digits, this is not how it should be in real life
             code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
             if(DiscountCode.objects.filter(brand=id_brand, value=code).exists()):
                 return self.createXdiscountCodes(x, id_brand)
@@ -69,7 +72,7 @@ class  FollowerView(viewsets.ViewSet):
         code = request.data.get('code')
         discount_code = DiscountCode.objects.get(value=code, brand=brand)
         Follower.objects.create(id_user=id_user, discount_code=discount_code)
-        # Add here call to rabbitMQ to update follower service
+        # Add here call to rabbitMQ to publish event that a user reclaimed a discount code and thus becoming a fellower
         serializer = DiscountCodeSerializer(discount_code)
         return Response(serializer.data)
     

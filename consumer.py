@@ -1,3 +1,5 @@
+# skeleton file for the consumer of loyalty program
+
 import pika, json, os, django
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "admin.settings")
