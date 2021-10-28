@@ -16,14 +16,14 @@ Since it's docker, it's fairly easy :
 
 ## API urls available:
 *  `http://localhost:8000/discountcode/` : 
-** GET: List all discount codes
-** POST: Generate X codes for a specified brand
+  * GET: List all discount codes
+  * POST: Generate X codes for a specified brand
 * `http://localhost:8000/brand/`:
-** POST: Create a brand
-** GET: List of all brands
+  * POST: Create a brand
+  * GET: List of all brands
 * `http://localhost:8000/follower/`:
-** POST: Create a follower (retrieve a code and create a follower which is basically the relation between a brand and the user)
-** GET: List of all followers
+  * POST: Create a follower (retrieve a code and create a follower which is basically the relation between a brand and the user)
+  * GET: List of all followers (this is not working as the time of writing this)
 
 ## Miscellaneous:
 Both producer.py and consumer.py are 'skeletons', they are connected to my personal cloudRabbitMQ but mostly as to show the code and discuss it.
