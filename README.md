@@ -11,7 +11,7 @@ Since it's docker, it's fairly easy :
 * Position yourself on the directory where the Docker files are
 * Open the terminal
 * Run `docker-compose pull`
-* Run `docker-compose up -d`
+* Run `docker-compose up -d --build`
 * The api will run on `http://localhost:8000`
 
 ## API urls available:
