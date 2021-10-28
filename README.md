@@ -26,7 +26,7 @@ Since it's docker, it's fairly easy :
   * GET: List of all followers (this is not working as the time of writing this)
 
 ## Miscellaneous:
-Both producer.py and consumer.py are 'skeletons', they are connected to my personal cloudRabbitMQ but mostly as to show the code and discuss it.
-The documentation for the endpoints are missings, if i had more time i would have created it using Swagger. 
+* Both producer.py and consumer.py are 'skeletons', they are connected to my personal cloudRabbitMQ but mostly as to show the code and discuss it.
+* The documentation for the endpoints are missings, if i had more time i would have created it using Swagger. 
 
 
